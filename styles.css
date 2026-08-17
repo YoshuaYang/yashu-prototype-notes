@@ -5,8 +5,9 @@
   --muted: #74736d;
   --faint: #a6a49c;
   --line: #d9d6cd;
-  --accent: #657b75;
-  --accent-soft: #e3e9e6;
+  --accent: #587996;
+  --accent-deep: #45657f;
+  --accent-soft: #e4edf3;
   --sage: #dce4dc;
   --warm: #eadfd5;
 }
@@ -47,7 +48,7 @@ a { color: inherit; }
   align-items: center;
   min-height: 100vh;
   padding: 30px 18px 24px;
-  background: var(--accent);
+  background: var(--accent-deep);
   color: white;
 }
 
@@ -102,7 +103,7 @@ a { color: inherit; }
 .paper {
   min-width: 0;
   background:
-    linear-gradient(90deg, transparent 0 64px, rgba(101, 123, 117, 0.08) 64px 65px, transparent 65px),
+    linear-gradient(90deg, transparent 0 64px, rgba(88, 121, 150, 0.08) 64px 65px, transparent 65px),
     var(--surface);
 }
 
@@ -187,13 +188,29 @@ a { color: inherit; }
   line-height: 1.5;
 }
 
+.cognitive-path {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  max-width: 820px;
+  margin: 54px 0 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+.cognitive-path li { position: relative; padding: 20px 16px 0 0; }
+.cognitive-path li::before { content: ""; position: absolute; top: -4px; left: 0; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+.cognitive-path span { display: block; margin-bottom: 7px; color: var(--accent); font-family: Georgia, serif; font-size: 10px; }
+.cognitive-path strong { font-size: 12px; font-weight: 560; }
+
 .hero-notes {
   position: relative;
   z-index: 1;
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   gap: clamp(44px, 9vw, 130px);
-  margin-top: 94px;
+  margin-top: 68px;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
@@ -304,6 +321,7 @@ a { color: inherit; }
   font-size: clamp(21px, 2.5vw, 32px);
   line-height: 1.65;
 }
+.project-sheet blockquote > span { display: block; margin-bottom: 12px; color: var(--accent); font-family: Inter, sans-serif; font-size: 9px; font-weight: 700; letter-spacing: 0.16em; }
 
 .notation {
   position: relative;
@@ -315,8 +333,8 @@ a { color: inherit; }
   background-size: 100% 32px;
 }
 
-.notation.relationship { background-color: #f1ebe6; }
-.notation.cognition { background-color: #e8eeeb; }
+.notation.relationship { background-color: #edf2f5; }
+.notation.cognition { background-color: #e7eef4; }
 
 .notation-number {
   position: absolute;
@@ -338,7 +356,7 @@ a { color: inherit; }
 
 .notation .orbit {
   position: absolute;
-  border: 1px solid rgba(101, 123, 117, 0.52);
+  border: 1px solid rgba(88, 121, 150, 0.52);
   border-radius: 50%;
   transform: rotate(-21deg);
 }
@@ -346,14 +364,14 @@ a { color: inherit; }
 .notation .orbit-two { width: 112px; height: 174px; right: 28%; top: 19%; transform: rotate(42deg); }
 .notation .node { position: absolute; width: 18px; height: 18px; border-radius: 50%; }
 .notation .node-a { right: 31%; top: 25%; background: var(--accent); }
-.notation .node-b { right: 21%; top: 51%; background: #bd8f7b; }
+.notation .node-b { right: 21%; top: 51%; background: #8faabe; }
 
 .notation .bar {
   position: absolute;
   bottom: 74px;
   width: 12%;
   border-radius: 36px 36px 0 0;
-  background: rgba(101, 123, 117, 0.56);
+  background: rgba(88, 121, 150, 0.56);
 }
 .notation .bar-one { left: 22%; height: 64px; }
 .notation .bar-two { left: 38%; height: 132px; }
@@ -365,19 +383,10 @@ a { color: inherit; }
   padding-top: 8px;
 }
 
-.project-summary {
-  margin: 0 0 22px;
-  font-family: "Songti SC", STSong, Georgia, serif;
-  font-size: 23px;
-  line-height: 1.75;
-}
-
-.project-details {
-  margin: 0;
-  color: var(--muted);
-  font-size: 14px;
-  line-height: 1.9;
-}
+.reasoning-block { display: grid; grid-template-columns: 112px 1fr; gap: 24px; padding: 18px 0; border-top: 1px solid var(--line); }
+.reasoning-block > span { color: var(--accent); font-size: 9px; font-weight: 700; letter-spacing: 0.1em; }
+.reasoning-block p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.85; }
+.reasoning-block.result p { color: var(--ink); font-family: "Songti SC", STSong, Georgia, serif; font-size: 18px; }
 
 .project-copy ul {
   display: flex;
@@ -455,7 +464,7 @@ a { color: inherit; }
   position: absolute;
   right: 5%;
   top: -18%;
-  color: rgba(101, 123, 117, 0.12);
+  color: rgba(88, 121, 150, 0.12);
   font-family: Georgia, serif;
   font-size: 360px;
   line-height: 1;
@@ -465,7 +474,7 @@ a { color: inherit; }
   position: relative;
   max-width: 630px;
   margin: 48px 0 0 auto;
-  color: #52625e;
+  color: #465d70;
   font-family: "Songti SC", STSong, Georgia, serif;
   font-size: 15px;
   line-height: 2;
@@ -516,6 +525,7 @@ footer {
   .hero h1 { font-size: clamp(52px, 17vw, 78px); }
   .hero-thesis { font-size: 24px; }
   .hero-notes { grid-template-columns: 1fr; gap: 36px; margin-top: 70px; }
+  .cognitive-path { grid-template-columns: repeat(2, 1fr); gap: 22px 0; }
   .scroll-note { display: none; }
   .section-heading { align-items: flex-start; flex-direction: column; gap: 7px; }
   .project-sheet { padding: 54px 0 78px; gap: 34px; }
@@ -523,6 +533,7 @@ footer {
   .prototype-status { margin-top: 24px; }
   .project-sheet blockquote { padding-left: 17px; font-size: 21px; }
   .notation { min-height: 250px; }
+  .reasoning-block { grid-template-columns: 1fr; gap: 8px; }
   .method-intro { grid-template-columns: 1fr; gap: 18px; }
   .method-index { font-size: 62px; }
   .method h2, .next-question h2 { font-size: 36px; }
