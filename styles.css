@@ -5,8 +5,8 @@
   --muted: #74736d;
   --faint: #a6a49c;
   --line: #d9d6cd;
-  --accent: #6e70cc;
-  --accent-soft: #e5e5f4;
+  --accent: #657b75;
+  --accent-soft: #e3e9e6;
   --sage: #dce4dc;
   --warm: #eadfd5;
 }
@@ -102,7 +102,7 @@ a { color: inherit; }
 .paper {
   min-width: 0;
   background:
-    linear-gradient(90deg, transparent 0 64px, rgba(110, 112, 204, 0.08) 64px 65px, transparent 65px),
+    linear-gradient(90deg, transparent 0 64px, rgba(101, 123, 117, 0.08) 64px 65px, transparent 65px),
     var(--surface);
 }
 
@@ -316,7 +316,7 @@ a { color: inherit; }
 }
 
 .notation.relationship { background-color: #f1ebe6; }
-.notation.cognition { background-color: #ececf5; }
+.notation.cognition { background-color: #e8eeeb; }
 
 .notation-number {
   position: absolute;
@@ -338,7 +338,7 @@ a { color: inherit; }
 
 .notation .orbit {
   position: absolute;
-  border: 1px solid rgba(110, 112, 204, 0.52);
+  border: 1px solid rgba(101, 123, 117, 0.52);
   border-radius: 50%;
   transform: rotate(-21deg);
 }
@@ -353,7 +353,7 @@ a { color: inherit; }
   bottom: 74px;
   width: 12%;
   border-radius: 36px 36px 0 0;
-  background: rgba(110, 112, 204, 0.56);
+  background: rgba(101, 123, 117, 0.56);
 }
 .notation .bar-one { left: 22%; height: 64px; }
 .notation .bar-two { left: 38%; height: 132px; }
@@ -455,7 +455,7 @@ a { color: inherit; }
   position: absolute;
   right: 5%;
   top: -18%;
-  color: rgba(110, 112, 204, 0.12);
+  color: rgba(101, 123, 117, 0.12);
   font-family: Georgia, serif;
   font-size: 360px;
   line-height: 1;
@@ -465,7 +465,7 @@ a { color: inherit; }
   position: relative;
   max-width: 630px;
   margin: 48px 0 0 auto;
-  color: #57566a;
+  color: #52625e;
   font-family: "Songti SC", STSong, Georgia, serif;
   font-size: 15px;
   line-height: 2;
