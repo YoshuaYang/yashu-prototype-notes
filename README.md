@@ -2,6 +2,12 @@
 
 这是我在 Trae on Campus 活动中完成的两个 AI 辅助交互原型，也是一次从生活经验、用户需求到可交互产品形态的快速验证。
 
+## 在线体验
+
+- [作品主页](https://yoshuayang.github.io/yashu-prototype-notes/)
+- [关系星系 · Relationship Galaxy](https://yoshuayang.github.io/yashu-prototype-notes/relationship-galaxy.html)
+- [PFC Insight · 前额叶精力管理](https://yoshuayang.github.io/yashu-prototype-notes/pfc-insight.html)
+
 ## 项目
 
 ### 关系星系（Relationship Galaxy）
