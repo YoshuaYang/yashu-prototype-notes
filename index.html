@@ -1,0 +1,168 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="杨雅姝的 AI 辅助交互原型：关系星系与 PFC Insight。" />
+    <meta property="og:title" content="杨雅姝｜交互原型作品" />
+    <meta property="og:description" content="从生活经验、需求洞察到可以点击和讨论的交互原型。" />
+    <meta property="og:image" content="og.png" />
+    <title>杨雅姝｜交互原型作品</title>
+    <style>
+      :root {
+        --ink: #f4f0e7;
+        --muted: #a9b2bf;
+        --night: #07111f;
+        --panel: #0d1a2b;
+        --line: rgba(170, 190, 215, 0.22);
+        --gold: #d6ad65;
+        --coral: #e57f69;
+        --blue: #559af1;
+      }
+
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; background: var(--night); }
+      body {
+        margin: 0;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 10% 4%, rgba(214, 173, 101, 0.14), transparent 24rem),
+          radial-gradient(circle at 92% 50%, rgba(85, 154, 241, 0.12), transparent 28rem),
+          var(--night);
+        font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      }
+
+      a { color: inherit; }
+      main { width: min(1160px, calc(100% - 36px)); margin: 0 auto; }
+
+      header {
+        min-height: 90px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .wordmark { display: flex; align-items: baseline; gap: 14px; letter-spacing: .14em; }
+      .wordmark strong { color: var(--gold); font-family: Georgia, serif; font-size: 20px; font-weight: 400; }
+      .wordmark span, .meta, .eyebrow, .status { color: var(--muted); font-size: 11px; font-weight: 700; letter-spacing: .15em; }
+
+      .hero { position: relative; min-height: 580px; padding: 112px 0 82px; overflow: hidden; }
+      .eyebrow { margin: 0 0 26px; color: var(--gold); }
+      h1, h2 { font-family: Georgia, "Songti SC", "STSong", serif; font-weight: 400; }
+      h1 { position: relative; z-index: 1; max-width: 980px; margin: 0; font-size: clamp(46px, 7vw, 88px); line-height: 1.1; letter-spacing: -.04em; }
+      .hero-copy { position: relative; z-index: 1; width: min(570px, 100%); margin: 54px 0 0 auto; padding-left: 26px; border-left: 1px solid var(--gold); color: #c5cdd7; line-height: 1.9; }
+      .hero-copy p { margin: 0; }
+      .hero-copy small { display: block; margin-top: 18px; color: var(--gold); }
+
+      .orbit { position: absolute; right: -40px; top: 54px; width: 380px; height: 380px; border: 1px solid rgba(214, 173, 101, .22); border-radius: 50%; }
+      .orbit::before, .orbit::after { content: ""; position: absolute; inset: 16%; border: 1px solid rgba(214, 173, 101, .16); border-radius: 50%; }
+      .orbit::after { inset: 34%; background: var(--gold); box-shadow: 0 0 56px rgba(214, 173, 101, .45); }
+
+      .projects { display: grid; gap: 24px; padding: 26px 0 110px; }
+      .card { display: grid; grid-template-columns: minmax(250px, .8fr) 1.4fr; min-height: 430px; overflow: hidden; border: 1px solid var(--line); border-radius: 28px; background: rgba(13, 26, 43, .82); box-shadow: 0 26px 80px rgba(0, 0, 0, .2); }
+      .visual { position: relative; min-height: 300px; overflow: hidden; background: #101925; }
+      .visual.warm { background: radial-gradient(circle at 48% 46%, rgba(229, 127, 105, .34), transparent 9%), repeating-radial-gradient(circle at 48% 46%, transparent 0 54px, rgba(214, 173, 101, .2) 55px 56px), #101925; }
+      .visual.cool { background: linear-gradient(rgba(85, 154, 241, .1) 1px, transparent 1px), linear-gradient(90deg, rgba(85, 154, 241, .1) 1px, transparent 1px), #0b1929; background-size: 42px 42px; }
+      .index { position: absolute; top: 32px; left: 34px; color: rgba(244, 240, 231, .72); font-family: Georgia, serif; font-size: 70px; }
+      .node { position: absolute; right: 22%; top: 42%; width: 14px; height: 14px; border-radius: 50%; background: var(--coral); box-shadow: 0 0 34px rgba(229, 127, 105, .85); }
+      .bars { position: absolute; left: 20%; right: 12%; bottom: 17%; height: 42%; display: flex; align-items: flex-end; gap: 16px; }
+      .bars i { flex: 1; border-radius: 999px 999px 0 0; background: linear-gradient(to top, var(--blue), rgba(85, 154, 241, .08)); }
+      .bars i:nth-child(1) { height: 35%; } .bars i:nth-child(2) { height: 82%; } .bars i:nth-child(3) { height: 54%; } .bars i:nth-child(4) { height: 94%; } .bars i:nth-child(5) { height: 68%; }
+
+      .content { display: flex; flex-direction: column; padding: clamp(34px, 5vw, 64px); }
+      .heading { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; }
+      .heading p { margin: 0 0 8px; color: var(--muted); font-size: 12px; letter-spacing: .13em; text-transform: uppercase; }
+      .heading h2 { margin: 0; font-size: clamp(34px, 4vw, 54px); }
+      .status { padding: 9px 12px; border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
+      .summary { margin: 38px 0 14px; color: #f3eee4; font-family: Georgia, "Songti SC", serif; font-size: 22px; line-height: 1.6; }
+      .details { margin: 0; color: var(--muted); font-size: 15px; line-height: 1.8; }
+      .footer { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: auto; padding-top: 38px; }
+      .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0; padding: 0; list-style: none; }
+      .tags li { padding: 7px 10px; border: 1px solid var(--line); border-radius: 999px; color: var(--muted); font-size: 12px; }
+      .launch { padding: 12px 17px; border-radius: 999px; background: var(--ink); color: var(--night); font-weight: 700; text-decoration: none; white-space: nowrap; }
+      .note { margin: 18px 0 0; color: #8290a0; font-size: 12px; }
+
+      .method, .next { margin-bottom: 110px; padding: clamp(36px, 6vw, 70px); border: 1px solid var(--line); border-radius: 28px; background: rgba(13, 26, 43, .54); }
+      .method h2, .next h2 { max-width: 840px; margin: 0; font-size: clamp(32px, 5vw, 58px); line-height: 1.25; }
+      .steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin: 54px 0 0; padding: 0; list-style: none; }
+      .steps li { padding-top: 20px; border-top: 1px solid var(--line); }
+      .steps span { color: var(--gold); font-family: Georgia, serif; font-size: 22px; }
+      .steps h3 { margin: 24px 0 10px; font-size: 18px; }
+      .steps p, .next > p:last-child { margin: 0; color: var(--muted); line-height: 1.8; }
+      .next > p:last-child { max-width: 720px; margin-top: 28px; }
+
+      footer { min-height: 110px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+
+      @media (max-width: 780px) {
+        header .meta { display: none; }
+        .hero { min-height: 520px; padding-top: 90px; }
+        .orbit { opacity: .55; right: -180px; }
+        .card { grid-template-columns: 1fr; }
+        .heading, .footer, footer { align-items: flex-start; flex-direction: column; }
+        .steps { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <header>
+        <div class="wordmark"><strong>YASHU YANG</strong><span>PROTOTYPE NOTES</span></div>
+        <div class="meta">STS × USER RESEARCH · 2026</div>
+      </header>
+
+      <section class="hero">
+        <div class="orbit" aria-hidden="true"></div>
+        <p class="eyebrow">AI-ASSISTED INTERACTION PROTOTYPES</p>
+        <h1>把模糊的生活经验，<br />做成可以被体验的问题。</h1>
+        <div class="hero-copy">
+          <p>两个在 Trae on Campus 活动中完成的 HTML 交互原型，记录我如何从亲密关系、注意与行动管理等日常经验出发，完成问题拆解、功能设计与快速验证。</p>
+          <small>杨雅姝 · 浙江大学社会学博士生</small>
+        </div>
+      </section>
+
+      <section class="projects" aria-label="交互原型列表">
+        <article class="card">
+          <div class="visual warm" aria-hidden="true"><span class="index">01</span><span class="node"></span></div>
+          <div class="content">
+            <div class="heading"><div><p>Relationship Galaxy</p><h2>关系星系</h2></div><span class="status">INTERACTIVE DEMO</span></div>
+            <p class="summary">把难以复盘的亲密关系冲突，转译成可记录、可观察、可共同讨论的互动旅程。</p>
+            <p class="details">原型包含对话记录、关系模式分析、内心地图、共同探索与关系成长路径，关注冲突背后未被说出的需要。</p>
+            <div class="footer"><ul class="tags"><li>亲密关系</li><li>需求洞察</li><li>叙事交互</li></ul><a class="launch" href="relationship-galaxy.html">进入体验 ↗</a></div>
+            <p class="note">概念原型 · 不保存上传内容 · 不构成心理建议</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="visual cool" aria-hidden="true"><span class="index">02</span><div class="bars"><i></i><i></i><i></i><i></i><i></i></div></div>
+          <div class="content">
+            <div class="heading"><div><p>Cognitive Workload Prototype</p><h2>PFC Insight</h2></div><span class="status">INTERACTIVE DEMO</span></div>
+            <p class="summary">把抽象的任务压力拆解为日程、切换成本与恢复节奏，让认知负担获得一个可讨论的界面。</p>
+            <p class="details">原型支持任务分类、负荷曲线、执行功能分解和恢复建议，展示从生活问题到交互规则的快速验证过程。</p>
+            <div class="footer"><ul class="tags"><li>任务管理</li><li>信息可视化</li><li>认知负荷</li></ul><a class="launch" href="pfc-insight.html">进入体验 ↗</a></div>
+            <p class="note">启发式概念模型 · 非医学评估、诊断或个体化建议</p>
+          </div>
+        </article>
+      </section>
+
+      <section class="method">
+        <p class="eyebrow">WHAT THESE DEMOS SHOW</p>
+        <h2>我的工作不从功能清单开始，而从人的处境开始。</h2>
+        <ol class="steps">
+          <li><span>01</span><h3>定义问题</h3><p>从日常叙述中识别尚未被产品语言表达的需要。</p></li>
+          <li><span>02</span><h3>组织洞察</h3><p>把复杂经验转化为用户路径、判断规则和功能优先级。</p></li>
+          <li><span>03</span><h3>快速验证</h3><p>借助 AI 辅助编程，把想法做成可以点击、讨论和修正的原型。</p></li>
+        </ol>
+      </section>
+
+      <section class="next">
+        <p class="eyebrow">NEXT QUESTION</p>
+        <h2>技术能否理解照护者被切碎的时间，而不是再增加一套自律要求？</h2>
+        <p>在 She Nicest 黑客松中，我希望探索面向家庭照护者与中老年女性的居家抗阻训练原型，并进一步理解 AI、具身交互与照护关系如何彼此塑造。</p>
+      </section>
+
+      <footer><span>YASHU YANG · PROTOTYPE NOTES</span><span>Made with field sensitivity and AI-assisted prototyping.</span></footer>
+    </main>
+  </body>
+</html>
