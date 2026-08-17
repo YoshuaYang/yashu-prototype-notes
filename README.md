@@ -1,4 +1,4 @@
-# Yashu Yang · Prototype Notes
+# Joshua Yang · Research & Prototypes
 
 这里收录了我主导完成的两个 AI 辅助交互原型。我从日常经验中定义问题，推进需求拆解、交互设计与原型实现，将模糊直觉转化为可体验、可验证的产品假设。
 
